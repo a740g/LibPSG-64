@@ -1,6 +1,6 @@
 # What is this?
 
-This is a [QB64](https://github.com/QB64-Phoenix-Edition/QB64pe) library for playing [MML](https://en.wikipedia.org/wiki/Music_Macro_Language) music and sounds using [Macrotune PSG](https://www.posemotion.com/macrotune/). [Macrotune](https://www.posemotion.com/macrotune/) is a [Music Macro Language](https://en.wikipedia.org/wiki/Music_Macro_Language) ([MML](https://en.wikipedia.org/wiki/Music_Macro_Language)) editor to easily create “retro” style music for an app, game or just for fun!
+This is a [QB64-PE](https://github.com/QB64-Phoenix-Edition/QB64pe) library for playing [MML](https://en.wikipedia.org/wiki/Music_Macro_Language) music and sounds using [Macrotune PSG](https://www.posemotion.com/macrotune/). [Macrotune](https://www.posemotion.com/macrotune/) is a [Music Macro Language](https://en.wikipedia.org/wiki/Music_Macro_Language) ([MML](https://en.wikipedia.org/wiki/Music_Macro_Language)) editor to easily create “retro” style music for an app, game or just for fun!
 
 ![Screenshot](screenshot.png)
 
