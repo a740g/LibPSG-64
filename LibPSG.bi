@@ -84,7 +84,7 @@ $If LIBPSG_BI = UNDEFINED Then
         $ElseIf LINUX Then
             $ERROR Linux is not supported yet!
         $ElseIf MACOSX Then
-            Declare Dynamic Library "./libpsg"
+            Declare Dynamic Library "./psg"
         $Else
             $ERROR Unknown platform!
         $End If
