@@ -90,8 +90,8 @@ $If LIBPSG_BI = UNDEFINED Then
         $End If
 
         Function PSG_IsPlayingMML& ' Returns non zero when MML is playing
-        Sub PSG_PlayMML (Channel0 As String, Channel1 As String, Channel2 As String, Channel3 As String) ' Play MML
-        Sub PSG_SetMasterVolume (ByVal Volume As Single) ' Set master volume (0-1)
+        Sub PSG_PlayMML (Channel0 As String, Channel1 As String, Channel2 As String, Channel3 As String) ' Play MML. Remember to NULL terminate the strings!
+        Sub PSG_SetMasterVolume (ByVal Volume As Single) ' Set master volume (0.0 - 1.0)
         Sub PSG_Sound (ByVal Channel As Unsigned Long, Byval Frequency As Single, Byval Volume As Unsigned Long, Byval Waveform As Unsigned Long) ' Generate sound
         Sub PSG_Terminate ' Termination function to be called at the end of an application
     End Declare

@@ -133,7 +133,7 @@ Do
     PlayMML Channel_0, Channel_1, Channel_2, Channel_3, Caption
 Loop
 
-System 0
+System
 '-----------------------------------------------------------------------------------------------------
 
 '-----------------------------------------------------------------------------------------------------
@@ -144,7 +144,7 @@ Sub PlayMML (chan0 As String, chan1 As String, chan2 As String, chan3 As String,
     Dim As String minute, second
 
     startTime = Timer
-    PSG_PlayMML chan0 + Chr$(0), chan1 + Chr$(0), chan2 + Chr$(0), chan3 + Chr$(0) ' Add terminating NULLs
+    PSG_PlayMML chan0 + Chr$(NULL), chan1 + Chr$(NULL), chan2 + Chr$(NULL), chan3 + Chr$(NULL) ' Add terminating NULLs
 
     Print
     Print "Playing "; caption; " (press ESC to stop)..."
