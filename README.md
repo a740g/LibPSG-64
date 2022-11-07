@@ -34,7 +34,11 @@ W        waveform (0 = triangle, 1 = sawtooth, 2 = complex a, 3 = complex b, 4 =
 
 Volume Envelope & Decay
 
-The volume envelope uses the same "\" character as decay. This is because the decay doesn't work when using a volume envelope. If you want to use the "\" as a decay, just type a backslash followed by a number. Such as, "\2". If you want to use the "\" as a volume envelope, just type the backslash with multiple numbers that are separated by commas. Such as, "\1,9,2,5". If you don't want the volume envelope to have interpolation, then type a period after the backslash. Such as, "\.1,9,2,5".
+The volume envelope uses the same "\" character as decay. This is because the decay doesn't work when using
+a volume envelope. If you want to use the "\" as a decay, just type a backslash followed by a number. Such as,
+"\2". If you want to use the "\" as a volume envelope, just type the backslash with multiple numbers that are
+separated by commas. Such as, "\1,9,2,5". If you don't want the volume envelope to have interpolation, then
+type a period after the backslash. Such as, "\.1,9,2,5".
 
 Tempo = BPM
 
