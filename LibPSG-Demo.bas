@@ -149,7 +149,7 @@ Sub PlayMML (chan0 As String, chan1 As String, chan2 As String, chan3 As String,
     Print
     Print "Playing "; caption; " (press ESC to stop)..."
 
-    Do While PSG_IsPlayingMML And KeyHit <> 27
+    Do While PSG_IsPlayingMML And KeyHit <> KEY_ESCAPE
         currentTime = Timer
         If startTime > currentTime Then startTime = startTime - 86400
         elapsedTime = currentTime - startTime
