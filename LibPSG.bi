@@ -1,6 +1,6 @@
 '---------------------------------------------------------------------------------------------------------
 ' A library for playing MML music and sounds using Macrotune PSG
-' Copyright (c) 2022 Samuel Gomes
+' Copyright (c) 2023 Samuel Gomes
 '
 ' This uses Macrotune PSG by PoseMotion (https://www.posemotion.com/macrotune/)
 ' Macrotune is a Music Macro Language (MML) editor that allows you to easily create "retro" style music!
@@ -90,7 +90,7 @@ $If LIBPSG_BI = UNDEFINED Then
         $End If
 
         Function PSG_IsPlayingMML& ' Returns non zero when MML is playing
-        Sub PSG_PlayMML (Channel0 As String, Channel1 As String, Channel2 As String, Channel3 As String) ' Play MML. Remember to NULL terminate the strings!
+        Sub __PSG_PlayMML Alias PSG_PlayMML (Channel0 As String, Channel1 As String, Channel2 As String, Channel3 As String) ' Play MML. Include 'LibPSG.bas'!
         Sub PSG_SetMasterVolume (ByVal Volume As Single) ' Set master volume (0.0 - 1.0)
         Sub PSG_Sound (ByVal Channel As Unsigned Long, Byval Frequency As Single, Byval Volume As Unsigned Long, Byval Waveform As Unsigned Long) ' Generate sound
         Sub PSG_Terminate ' Termination function to be called at the end of an application
