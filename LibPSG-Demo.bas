@@ -1,52 +1,61 @@
-'-----------------------------------------------------------------------------------------------------
+'-----------------------------------------------------------------------------------------------------------------------
 ' LibPSG MML Player Demo
 ' Copyright (c) 2023 Samuel Gomes
-'-----------------------------------------------------------------------------------------------------
+'-----------------------------------------------------------------------------------------------------------------------
 
-'-----------------------------------------------------------------------------------------------------
+'-----------------------------------------------------------------------------------------------------------------------
+' METACOMMANDS
+'-----------------------------------------------------------------------------------------------------------------------
+$IF VERSION < 3.7 THEN
+        $ERROR This requires the latest version of QB64-PE from https://github.com/QB64-Phoenix-Edition/QB64pe/releases
+$END IF
+DEFLNG A-Z
+OPTION _EXPLICIT
+'$STATIC
+OPTION BASE 1
+$RESIZE:SMOOTH
+'-----------------------------------------------------------------------------------------------------------------------
+
+'-----------------------------------------------------------------------------------------------------------------------
 ' HEADER FILES
-'-----------------------------------------------------------------------------------------------------
-'$Include:'./LibPSG.bi'
-'-----------------------------------------------------------------------------------------------------
+'-----------------------------------------------------------------------------------------------------------------------
+'$INCLUDE:'LibPSG.bi'
+'-----------------------------------------------------------------------------------------------------------------------
 
-'-----------------------------------------------------------------------------------------------------
+'-----------------------------------------------------------------------------------------------------------------------
 ' CONSTANTS
-'-----------------------------------------------------------------------------------------------------
-Const APP_NAME = "PSG MML Player Demo"
-'-----------------------------------------------------------------------------------------------------
+'-----------------------------------------------------------------------------------------------------------------------
+CONST APP_NAME = "PSG MML Player Demo"
+'-----------------------------------------------------------------------------------------------------------------------
 
-'-----------------------------------------------------------------------------------------------------
+'-----------------------------------------------------------------------------------------------------------------------
 ' PROGRAM ENTRY POINT
-'-----------------------------------------------------------------------------------------------------
-Title APP_NAME
-AllowFullScreen SquarePixels , Smooth ' All the user to press Alt+Enter to go fullscreen
+'-----------------------------------------------------------------------------------------------------------------------
+_TITLE APP_NAME
 
-Dim As String CH0Verse_1, CH0Verse_2, CH0Verse_3, CH1Verse_1, CH1Verse_2, CH1Verse_3, CH2Verse_1, CH2Verse_2, CH2Verse_3, CH2Verse_4, CH3Verse_1
-Dim As String Channel_0, Channel_1, Channel_2, Channel_3, Caption
-Dim c As Long
+DIM AS STRING CH0Verse_1, CH0Verse_2, CH0Verse_3, CH1Verse_1, CH1Verse_2, CH1Verse_3, CH2Verse_1, CH2Verse_2, CH2Verse_3, CH2Verse_4, CH3Verse_1
+DIM AS STRING Channel_0, Channel_1, Channel_2, Channel_3, Caption
+DIM c AS LONG
 
-Do
-    Do
-        Cls
-        Print
-        Print APP_NAME
-        Print "-------------------"
-        Print
-        Print "Enter number for a tune to play. Enter 0 to exit."
-        Print
-        Print "1. Demo 1 by Wilbert Brants"
-        Print "2. Demo 2 by Wilbert Brants"
-        Print "3. Demo 3 by J. Baker"
-        Print "4. Demo 4 by J. Baker"
-        Print "5. Demo 5 by J. Baker"
-        Print "6. Demo 6 by Wilbert Brants"
-        Print "7. Demo 7 by Wilbert Brants"
-        Print
-        Input "Your choice"; c
-    Loop While c < 0 Or c > 7
+DO
+    DO
+        CLS
+        PRINT
+        PRINT "Enter number for a tune to play. Enter 0 to exit."
+        PRINT
+        PRINT "1. Demo 1 by Wilbert Brants"
+        PRINT "2. Demo 2 by Wilbert Brants"
+        PRINT "3. Demo 3 by J. Baker"
+        PRINT "4. Demo 4 by J. Baker"
+        PRINT "5. Demo 5 by J. Baker"
+        PRINT "6. Demo 6 by Wilbert Brants"
+        PRINT "7. Demo 7 by Wilbert Brants"
+        PRINT
+        INPUT "Your choice"; c
+    LOOP WHILE c < 0 OR c > 7
 
-    Select Case c
-        Case 1
+    SELECT CASE c
+        CASE 1
             Caption = "Demo 1 by Wilbert Brants"
 
             CH0Verse_1 = "t11 w1 o1 \8 v48 L8 G4B-B-G4B-B-  G4>E-E-<G4>E-E-<  A>CF4<A>CF4<  F4AAGB->D4<"
@@ -62,7 +71,7 @@ Do
             Channel_2 = CH2Verse_1 + CH2Verse_2 + CH2Verse_1 + CH2Verse_3
             Channel_3 = ""
 
-        Case 2
+        CASE 2
             Caption = "Demo 2 by Wilbert Brants"
 
             Channel_0 = "t13 w1 o2 \16 v44 l8 v+cv-ceeg4 v+fv-faa>cc< v+cv-ceeg4 v+fv-faa>cc< ggbb>d4< \8 g4c2 :"
@@ -71,7 +80,7 @@ Do
             Channel_3 = ""
 
 
-        Case 3
+        CASE 3
             Caption = "Demo 3 by J. Baker"
 
             Channel_0 = "t12 w4 o3 \2 v40 l8 <dced> dcge4 l4 \1 <d1> r8 l8 \2 dg l4 \1 <d1> l8 \2 dge \1 <d1> \2 dcdrr v+ <<dd>> v- r"
@@ -79,7 +88,7 @@ Do
             Channel_2 = ""
             Channel_3 = ""
 
-        Case 4
+        CASE 4
             Caption = "Demo 4 by J. Baker"
 
             CH0Verse_1 = "t13 w4 o2 \3 v40 w4 \3 o2 dd2 w5 \4 o5 c"
@@ -102,7 +111,7 @@ Do
             Channel_2 = CH2Verse_1 + CH2Verse_1 + CH2Verse_1 + CH2Verse_1 + CH2Verse_2 + CH2Verse_2 + CH2Verse_2 + CH2Verse_3 + CH2Verse_4
             Channel_3 = CH3Verse_1
 
-        Case 5
+        CASE 5
             Caption = "Demo 5 by J. Baker"
 
             Channel_0 = "\8 T15 W0 V49 O4 L4 EEB CACB:"
@@ -110,7 +119,7 @@ Do
             Channel_2 = "\3 T15 W0 V50 O3 R1 L1 A R1 L4 BAB R2 L1 B:"
             Channel_3 = "\8 T15 W0 V42 O4 R1 L1 A R1:"
 
-        Case 6
+        CASE 6
             Caption = "Demo 6 by Wilbert Brants"
 
             Channel_0 = "\20 T10 W3 V55 O2 L16 ER*0E*1CECEC:"
@@ -118,7 +127,7 @@ Do
             Channel_2 = "\4 T10 W2 V50 L8 G>E<GEG>E<GEGE:"
             Channel_3 = ""
 
-        Case 7
+        CASE 7
             Caption = "Demo 7 by Wilbert Brants"
 
             Channel_0 = "T11 \16 O2 V44 W1 L4 V+CV-E8E8 <FA> <V+GV-B8B8> CE :"
@@ -126,56 +135,55 @@ Do
             Channel_2 = "T11 O5 W4 L4 CEC<G> CEC2 CEC<G> CE16R16E16R16C2 CEC<G> CEC2 CEC<G> C<G16>R16E16R16C2 :"
             Channel_3 = ""
 
-        Case Else
-            Exit Do ' Exit program
-    End Select
+        CASE ELSE
+            EXIT DO ' Exit program
+    END SELECT
 
     PlayMML Channel_0, Channel_1, Channel_2, Channel_3, Caption
-Loop
+LOOP
 
-System
-'-----------------------------------------------------------------------------------------------------
+SYSTEM
+'-----------------------------------------------------------------------------------------------------------------------
 
-'-----------------------------------------------------------------------------------------------------
+'-----------------------------------------------------------------------------------------------------------------------
 ' FUNCTIONS & SUBROUTINES
-'-----------------------------------------------------------------------------------------------------
-Sub PlayMML (chan0 As String, chan1 As String, chan2 As String, chan3 As String, caption As String)
-    Dim As Single startTime, currentTime, elapsedTime
-    Dim As String minute, second
+'-----------------------------------------------------------------------------------------------------------------------
+SUB PlayMML (chan0 AS STRING, chan1 AS STRING, chan2 AS STRING, chan3 AS STRING, caption AS STRING)
+    DIM AS SINGLE startTime, currentTime, elapsedTime
+    DIM AS STRING minute, second
 
-    startTime = Timer
+    startTime = TIMER
     PSG_PlayMML chan0, chan1, chan2, chan3
 
-    Print
-    Print "Playing "; caption; " (press ESC to stop)..."
+    PRINT
+    PRINT "Playing "; caption; " (press ESC to stop)..."
 
-    Do While PSG_IsPlayingMML And KeyHit <> KEY_ESCAPE
-        currentTime = Timer
-        If startTime > currentTime Then startTime = startTime - 86400
+    DO
+        currentTime = TIMER
+        IF startTime > currentTime THEN startTime = startTime - 86400
         elapsedTime = currentTime - startTime
 
-        Locate , 1
-        minute = Right$("00" + LTrim$(Str$(elapsedTime \ 60)), 2)
-        second = Right$("00" + LTrim$(Str$(elapsedTime Mod 60)), 2)
-        Print Using "Elapsed time: &:& (mm:ss)"; minute; second;
+        LOCATE , 1
+        minute = RIGHT$("00" + LTRIM$(STR$(elapsedTime \ 60)), 2)
+        second = RIGHT$("00" + LTRIM$(STR$(elapsedTime MOD 60)), 2)
+        PRINT USING "Elapsed time: &:& (mm:ss)"; minute; second;
 
-        Limit 15
-    Loop
+        _LIMIT 15
+    LOOP UNTIL NOT PSG_IsPlayingMML OR _KEYHIT = 27
 
-    Print
-    Print "Done!"
+    PRINT
+    PRINT "Done!"
 
-    Sleep 1
-    KeyClear
+    SLEEP 1
+    _KEYCLEAR
 
     PSG_Terminate
-End Sub
-'-----------------------------------------------------------------------------------------------------
+END SUB
+'-----------------------------------------------------------------------------------------------------------------------
 
-'-----------------------------------------------------------------------------------------------------
+'-----------------------------------------------------------------------------------------------------------------------
 ' MODULE FILES
-'-----------------------------------------------------------------------------------------------------
-'$Include:'./LibPSG.bas'
-'-----------------------------------------------------------------------------------------------------
-'-----------------------------------------------------------------------------------------------------
-
+'-----------------------------------------------------------------------------------------------------------------------
+'$INCLUDE:'LibPSG.bas'
+'-----------------------------------------------------------------------------------------------------------------------
+'-----------------------------------------------------------------------------------------------------------------------
