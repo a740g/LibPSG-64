@@ -13,22 +13,22 @@
 '$INCLUDE:'LibPSG.bi'
 '-----------------------------------------------------------------------------------------------------------------------
 
-$IF LIBPSG_BAS = UNDEFINED THEN
-    $LET LIBPSG_BAS = TRUE
+$If LIBPSG_BAS = UNDEFINED Then
+    $Let LIBPSG_BAS = TRUE
     '-------------------------------------------------------------------------------------------------------------------
     ' FUNCTIONS & SUBROUTINES
     '-------------------------------------------------------------------------------------------------------------------
-    $CHECKING:OFF
+    $Checking:Off
 
-    FUNCTION PSG_IsPlayingMML%%
+    Function PSG_IsPlayingMML%%
         PSG_IsPlayingMML = __PSG_IsPlayingMML <> 0 ' this will return any non-zero value as -1
-    END FUNCTION
+    End Function
 
-    SUB PSG_PlayMML (Channel0 AS STRING, Channel1 AS STRING, Channel2 AS STRING, Channel3 AS STRING)
-        __PSG_PlayMML Channel0 + CHR$(0), Channel1 + CHR$(0), Channel2 + CHR$(0), Channel3 + CHR$(0) ' we need to null terminate all strings
-    END SUB
+    Sub PSG_PlayMML (Channel0 As String, Channel1 As String, Channel2 As String, Channel3 As String)
+        __PSG_PlayMML Channel0 + Chr$(0), Channel1 + Chr$(0), Channel2 + Chr$(0), Channel3 + Chr$(0) ' we need to null terminate all strings
+    End Sub
 
-    $CHECKING:ON
+    $Checking:On
     '-------------------------------------------------------------------------------------------------------------------
-$END IF
+$End If
 '-----------------------------------------------------------------------------------------------------------------------
