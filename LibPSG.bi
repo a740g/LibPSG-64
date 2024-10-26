@@ -1,6 +1,6 @@
 '-----------------------------------------------------------------------------------------------------------------------
 ' A library for playing MML music and sounds using Macrotune PSG
-' Copyright (c) 2023 Samuel Gomes
+' Copyright (c) 2024 Samuel Gomes
 '
 ' This uses Macrotune PSG by PoseMotion (https://www.posemotion.com/macrotune/)
 ' Macrotune is a Music Macro Language (MML) editor that allows you to easily create "retro" style music!
@@ -48,45 +48,43 @@
 '   T15 = 240 BPM
 '-----------------------------------------------------------------------------------------------------------------------
 
-$IF LIBPSG_BI = UNDEFINED THEN
-    $LET LIBPSG_BI = TRUE
-    '-------------------------------------------------------------------------------------------------------------------
-    ' CONSTANTS
-    '-------------------------------------------------------------------------------------------------------------------
-    CONST PSG_WAVEFORM_TRIANGLE = 0
-    CONST PSG_WAVEFORM_SAWTOOTH = 1
-    CONST PSG_WAVEFORM_COMPLEX_A = 2
-    CONST PSG_WAVEFORM_COMPLEX_B = 3
-    CONST PSG_WAVEFORM_SQUARE = 4
-    CONST PSG_WAVEFORM_NOISE = 5
+$INCLUDEONCE
 
-    CONST PSG_CHANNEL_VOLUME_MAX = 63
-    CONST PSG_MASTER_VOLUME_MAX = 1
-    '-------------------------------------------------------------------------------------------------------------------
+'-----------------------------------------------------------------------------------------------------------------------
+' CONSTANTS
+'-----------------------------------------------------------------------------------------------------------------------
+CONST PSG_WAVEFORM_TRIANGLE = 0
+CONST PSG_WAVEFORM_SAWTOOTH = 1
+CONST PSG_WAVEFORM_COMPLEX_A = 2
+CONST PSG_WAVEFORM_COMPLEX_B = 3
+CONST PSG_WAVEFORM_SQUARE = 4
+CONST PSG_WAVEFORM_NOISE = 5
 
-    '-------------------------------------------------------------------------------------------------------------------
-    ' EXTERNAL LIBRARIES
-    '-------------------------------------------------------------------------------------------------------------------
-    $IF WINDOWS THEN
-        $IF 32BIT THEN
-                DECLARE DYNAMIC LIBRARY "psg_win_x86"
-        $ELSE
-            DECLARE DYNAMIC LIBRARY "psg_win_x64"
-            $END IF
-        $ELSEIF LINUX THEN
-            $ERROR Linux is not supported yet!
-        $ELSEIF MACOSX THEN
-            DECLARE DYNAMIC LIBRARY "psg"
-        $ELSE
-            $ERROR Unknown platform!
-        $END IF
+CONST PSG_CHANNEL_VOLUME_MAX = 63
+CONST PSG_MASTER_VOLUME_MAX = 1
+'-----------------------------------------------------------------------------------------------------------------------
 
-        FUNCTION __PSG_IsPlayingMML& ALIAS PSG_IsPlayingMML ' Returns non zero when MML is playing
-        SUB __PSG_PlayMML ALIAS PSG_PlayMML (Channel0 AS STRING, Channel1 AS STRING, Channel2 AS STRING, Channel3 AS STRING) ' Play MML. Include 'LibPSG.bas'!
-        SUB PSG_SetMasterVolume (BYVAL Volume AS SINGLE) ' Set master volume (0.0 - 1.0)
-        SUB PSG_Sound (BYVAL Channel AS _UNSIGNED LONG, BYVAL Frequency AS SINGLE, BYVAL Volume AS _UNSIGNED LONG, BYVAL Waveform AS _UNSIGNED LONG) ' Generate sound
-        SUB PSG_Terminate ' Termination function to be called at the end of an application
-    END DECLARE
-    '-------------------------------------------------------------------------------------------------------------------
+'-----------------------------------------------------------------------------------------------------------------------
+' EXTERNAL LIBRARIES
+'-----------------------------------------------------------------------------------------------------------------------
+$IF WINDOWS THEN
+    $IF 32BIT THEN
+DECLARE DYNAMIC LIBRARY "psg_win_x86"
+    $ELSE
+DECLARE DYNAMIC LIBRARY "psg_win_x64"
+    $END IF
+$ELSEIF LINUX THEN
+    $ERROR Linux is not supported yet!
+$ELSEIF MACOSX THEN
+DECLARE DYNAMIC LIBRARY "psg"
+$ELSE
+    $ERROR Unknown platform!
 $END IF
+    FUNCTION __PSG_IsPlayingMML& ALIAS "PSG_IsPlayingMML" ' Returns non zero when MML is playing
+    SUB __PSG_PlayMML ALIAS "PSG_PlayMML" (Channel0 AS STRING, Channel1 AS STRING, Channel2 AS STRING, Channel3 AS STRING) ' Play MML. Include 'LibPSG.bas'!
+    SUB PSG_SetMasterVolume (BYVAL Volume AS SINGLE) ' Set master volume (0.0 - 1.0)
+    SUB PSG_Sound (BYVAL Channel AS _UNSIGNED LONG, BYVAL Frequency AS SINGLE, BYVAL Volume AS _UNSIGNED LONG, BYVAL Waveform AS _UNSIGNED LONG) ' Generate sound
+    SUB PSG_Terminate ' Termination function to be called at the end of an application
+END DECLARE
+'-----------------------------------------------------------------------------------------------------------------------
 '-----------------------------------------------------------------------------------------------------------------------
